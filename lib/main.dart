@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projects/materialComponents.dart';
+import 'package:projects/ListviewDemo.dart';
+import 'package:projects/MaterialComponents.dart';
+import 'package:projects/NavigationDemo.dart';
 
 void main() {
   runApp(const MyDemoApp());
@@ -33,7 +35,9 @@ class _BasicDesignElements extends State<BasicDesignElements> {
 
   List<Widget> itemsList = [
     const BasicStatefulWidget(),
-    const MaterialStatefulWidget()
+    const MaterialStatefulWidget(),
+    const ListviewStatefulWidget(),
+    const NavigationDemo()
   ];
 
   void _onTapped(int index) {
@@ -91,6 +95,14 @@ class _BasicDesignElements extends State<BasicDesignElements> {
               icon: Icon(Icons.flutter_dash_outlined),
               label: "Material",
               tooltip: "Material Widgets"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: "ListView",
+              tooltip: "ListView"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.navigation),
+              label: "Navigation",
+              tooltip: "Navigation")
         ],
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
@@ -202,10 +214,6 @@ List<Item> generateBasicItem() {
             ),
           ],
         )),
-    Item(
-        expandedValue: "",
-        headerValue: "Image Widget",
-        view: Image.asset('assets/images/office.png'))
   ];
   return growableList;
 }
@@ -275,7 +283,7 @@ List<Item> generateMaterialItem() {
     Item(
         expandedValue: "",
         headerValue: "Dropdown Button Widget",
-        view: const DropdownWidget()),
+        view: const DropdownWidget())
   ];
   return growableList;
 }
