@@ -16,7 +16,7 @@ class NavigationDemo extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SecondRoute()),
+              MaterialPageRoute(builder: (context) => const SecondRoute(data: 'SENT THIS THROUGH NAVIGATOR')),
             );
           },
         ),
@@ -26,7 +26,9 @@ class NavigationDemo extends StatelessWidget {
 }
 
 class SecondRoute extends StatelessWidget {
-  const SecondRoute({super.key});
+  const SecondRoute({super.key,required this.data});
+
+  final String data;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +37,16 @@ class SecondRoute extends StatelessWidget {
         title: const Text('Second Route'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Go back!'),
+            ),
+            Text(data)
+          ],
         ),
       ),
     );

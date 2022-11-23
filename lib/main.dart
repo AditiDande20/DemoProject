@@ -3,6 +3,8 @@ import 'package:projects/ListviewDemo.dart';
 import 'package:projects/MaterialComponents.dart';
 import 'package:projects/NavigationDemo.dart';
 
+import 'TabBarDemo.dart';
+
 void main() {
   runApp(const MyDemoApp());
 }
@@ -37,13 +39,17 @@ class _BasicDesignElements extends State<BasicDesignElements> {
     const BasicStatefulWidget(),
     const MaterialStatefulWidget(),
     const ListviewStatefulWidget(),
-    const NavigationDemo()
+    const NavigationDemo(),
+    const TabBarDemo()
+
   ];
 
   void _onTapped(int index) {
     setState(() {
       selectedIndex = index;
     });
+
+
   }
 
   @override
@@ -102,7 +108,11 @@ class _BasicDesignElements extends State<BasicDesignElements> {
           BottomNavigationBarItem(
               icon: Icon(Icons.navigation),
               label: "Navigation",
-              tooltip: "Navigation")
+              tooltip: "Navigation"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.tab),
+              label: "Tabs",
+              tooltip: "Tabs")
         ],
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
